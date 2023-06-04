@@ -2,10 +2,12 @@ package com.rivibi.venoe.core.data.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Relation
 import java.time.LocalDateTime
 
+@Entity(tableName = "queue")
 data class QueueEntity(
     @PrimaryKey
     @ColumnInfo("id")
@@ -24,16 +26,19 @@ data class QueueEntity(
     val duration: Int,
 
     @ColumnInfo("remaining_time")
-    val remaining_time: Int,
+    val remainingTime: Int,
+
+    @ColumnInfo("event_id")
+    val eventId: String,
 )
 
-data class QueueAndEvent(
+data class EventAndQueue(
     @Embedded
-    val queue: QueueEntity,
+    val event: EventEntity,
 
     @Relation(
         parentColumn = "eventId",
         entityColumn = "id"
     )
-    val event: EventEntity? = null
+    val queue: List<QueueEntity>
 )
