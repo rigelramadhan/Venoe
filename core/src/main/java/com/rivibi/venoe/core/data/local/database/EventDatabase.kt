@@ -12,5 +12,5 @@ import com.rivibi.venoe.core.data.local.entity.OrganizerEntity
     version = 1
 )
 abstract class EventDatabase : RoomDatabase() {
-
+    abstract fun getDao(): EventDao
 }

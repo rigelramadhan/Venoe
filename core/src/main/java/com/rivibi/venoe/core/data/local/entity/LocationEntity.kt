@@ -1,19 +1,21 @@
 package com.rivibi.venoe.core.data.local.entity
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "location")
 data class LocationEntity(
     @PrimaryKey
-    @SerializedName("id")
+    @ColumnInfo("id")
     val id: String,
 
-    @SerializedName("location")
+    @ColumnInfo("location")
     val location: String,
 
-    @SerializedName("lat")
+    @ColumnInfo("lat")
     val lat: Double,
 
-    @SerializedName("long")
+    @ColumnInfo("long")
     val long: Double,
 )

@@ -1,34 +1,36 @@
 package com.rivibi.venoe.core.data.local.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Embedded
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Relation
-import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "organizer")
 data class OrganizerEntity(
     @PrimaryKey
-    @SerializedName("id")
+    @ColumnInfo("id")
     val id: String,
 
-    @SerializedName("name")
+    @ColumnInfo("name")
     val name: String,
 
-    @SerializedName("email")
+    @ColumnInfo("email")
     val email: String,
 
-    @SerializedName("logo_url")
+    @ColumnInfo("logo_url")
     val logo_url: String,
 
-    @SerializedName("header_url")
+    @ColumnInfo("header_url")
     val header_url: String,
 
-    @SerializedName("phone")
+    @ColumnInfo("phone")
     val phone: String,
 
-    @SerializedName("location_id")
+    @ColumnInfo("location_id")
     val location_id: String,
 
-    @SerializedName("location")
+    @ColumnInfo("location")
     val location: String,
 )
 

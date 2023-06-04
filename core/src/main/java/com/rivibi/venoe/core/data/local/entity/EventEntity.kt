@@ -6,32 +6,32 @@ import androidx.room.Entity
 import androidx.room.Junction
 import androidx.room.PrimaryKey
 import androidx.room.Relation
-import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "event")
 data class EventEntity(
     @PrimaryKey
-    @SerializedName("id")
+    @ColumnInfo("id")
     val id: String,
 
-    @SerializedName("name")
+    @ColumnInfo("name")
     val name: String,
 
-    @SerializedName("description")
+    @ColumnInfo("description")
     val description: String,
 
-    @SerializedName("banner_url")
+    @ColumnInfo("banner_url")
     val banner_url: String,
 
-    @SerializedName("date")
+    @ColumnInfo("date")
     val date: String,
 
-    @SerializedName("time")
+    @ColumnInfo("time")
     val time: String,
 
-    @SerializedName("location_id")
+    @ColumnInfo("location_id")
     val locationId: String,
 
-    @SerializedName("location")
+    @ColumnInfo("location")
     val location: String,
 )
 
