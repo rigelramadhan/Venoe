@@ -17,7 +17,7 @@ data class QueueEntity(
     val phase: String,
 
     @ColumnInfo("start_time")
-    val startTime: LocalDateTime,
+    val startTime: String,
 
     @ColumnInfo("actual_start_time")
     val actualStartTime: LocalDateTime,

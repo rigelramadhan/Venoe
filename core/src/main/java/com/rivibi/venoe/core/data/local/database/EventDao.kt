@@ -4,8 +4,10 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.RawQuery
 import androidx.room.Transaction
 import androidx.room.Update
+import androidx.sqlite.db.SimpleSQLiteQuery
 import com.rivibi.venoe.core.data.local.entity.EventAndQueue
 import com.rivibi.venoe.core.data.local.entity.EventEntity
 import com.rivibi.venoe.core.data.local.entity.EventOrganizerCrossRef
@@ -19,6 +21,9 @@ interface EventDao {
 //    QUERIES
     @Query("SELECT * FROM event")
     fun getAllEvents(): Flow<List<EventEntity>>
+
+    @RawQuery
+    fun getFilteredEvents(query: SimpleSQLiteQuery): Flow<List<EventEntity>>
 
     @Query("SELECT * FROM organizer")
     fun getAllOrganizers(): Flow<List<OrganizerEntity>>
