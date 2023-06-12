@@ -13,9 +13,9 @@ interface IEventRepository {
 
     fun getAllEvents(): Flow<Resource<List<Event>>>
 
-    fun addEvent(event: Event)
+    suspend fun addEvent(event: Event)
 
-    fun updateEvent(id: String, event: Event)
+    suspend fun updateEvent(event: Event)
 
-    fun deleteEvent(id: String)
+    suspend fun deleteEvent(id: String)
 }

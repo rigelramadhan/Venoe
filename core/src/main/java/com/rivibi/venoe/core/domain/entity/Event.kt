@@ -7,6 +7,7 @@ data class Event(
     val bannerUrl: String,
     val startTime: String,
     val endTime: String,
+    val locationId: String,
     val location: String,
     val organizers: List<Organizer>? = null,
 )

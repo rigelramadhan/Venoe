@@ -11,9 +11,21 @@ object DataMapper {
         id = input.id,
         name = input.name,
         description = input.description,
-        bannerUrl = input.banner_url,
+        bannerUrl = input.bannerUrl,
         startTime = input.startTime,
         endTime = input.endTime,
+        locationId = input.locationId,
+        location = input.location,
+    )
+
+    fun mapEventDomainToEntity(input: Event): EventEntity = EventEntity(
+        id = input.id,
+        name = input.name,
+        description = input.description,
+        bannerUrl = input.bannerUrl,
+        startTime = input.startTime,
+        endTime = input.endTime,
+        locationId = input.locationId,
         location = input.location,
     )
 
@@ -22,9 +34,23 @@ object DataMapper {
             id = it.id,
             name = it.name,
             description = it.description,
-            bannerUrl = it.banner_url,
+            bannerUrl = it.bannerUrl,
             startTime = it.startTime,
             endTime = it.endTime,
+            locationId = it.locationId,
+            location = it.location,
+        )
+    }
+
+    fun mapEventDomainToEntity(input: List<Event>): List<EventEntity> = input.map {
+        EventEntity(
+            id = it.id,
+            name = it.name,
+            description = it.description,
+            bannerUrl = it.bannerUrl,
+            startTime = it.startTime,
+            endTime = it.endTime,
+            locationId = it.locationId,
             location = it.location,
         )
     }
@@ -33,9 +59,10 @@ object DataMapper {
         id = input.event.id,
         name = input.event.name,
         description = input.event.description,
-        bannerUrl = input.event.banner_url,
+        bannerUrl = input.event.bannerUrl,
         startTime = input.event.startTime,
         endTime = input.event.endTime,
+        locationId = input.event.locationId,
         location = input.event.location,
         organizers = mapOrganizerEntityToDomain(input.organizers)
     )

@@ -17,9 +17,9 @@ class EventInteractor @Inject constructor(
 
     override fun getAllEvents(): Flow<Resource<List<Event>>> = eventRepository.getAllEvents()
 
-    override fun addEvent(event: Event) = eventRepository.addEvent(event)
+    override suspend fun addEvent(event: Event) = eventRepository.addEvent(event)
 
-    override fun updateEvent(id: String, event: Event) = eventRepository.updateEvent(id, event)
+    override suspend fun updateEvent(event: Event) = eventRepository.updateEvent(event)
 
-    override fun deleteEvent(id: String) = eventRepository.deleteEvent(id)
+    override suspend fun deleteEvent(id: String) = eventRepository.deleteEvent(id)
 }

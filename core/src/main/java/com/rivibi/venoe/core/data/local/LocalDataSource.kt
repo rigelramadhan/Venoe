@@ -4,6 +4,7 @@ import androidx.sqlite.db.SimpleSQLiteQuery
 import com.rivibi.venoe.core.data.datautils.EventQueryFilter
 import com.rivibi.venoe.core.data.local.database.EventDao
 import com.rivibi.venoe.core.data.local.entity.EventEntity
+import com.rivibi.venoe.core.data.local.entity.EventWithOrganizers
 import kotlinx.coroutines.flow.Flow
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -32,5 +33,15 @@ class LocalDataSource @Inject constructor(
         return eventDao.getFilteredEvents(query)
     }
 
+    fun getEvents(): Flow<List<EventEntity>> {
+        return eventDao.getAllEvents()
+    }
 
+    fun getEventDetails(eventId: String): Flow<EventWithOrganizers> = eventDao.getEventById(eventId)
+
+    suspend fun insertEvent(event: EventEntity) = eventDao.insertEvent(listOf(event))
+
+    suspend fun updateEvent(event: EventEntity) = eventDao.updateEvent(event)
+
+    suspend fun deleteEvent(eventId: String) = eventDao.deleteEvent(eventId)
 }
