@@ -22,7 +22,7 @@ interface EventDao {
     @Query("SELECT * FROM event")
     fun getAllEvents(): Flow<List<EventEntity>>
 
-    @RawQuery
+    @RawQuery(observedEntities = [EventEntity::class])
     fun getFilteredEvents(query: SimpleSQLiteQuery): Flow<List<EventEntity>>
 
     @Query("SELECT * FROM organizer")

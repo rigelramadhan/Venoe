@@ -6,7 +6,6 @@ import androidx.room.Entity
 import androidx.room.Junction
 import androidx.room.PrimaryKey
 import androidx.room.Relation
-import com.rivibi.venoe.core.domain.entity.Event
 
 @Entity(tableName = "event")
 data class EventEntity(
@@ -59,9 +58,9 @@ data class EventWithOrganizers(
     val event: EventEntity,
 
     @Relation(
-        parentColumn = "eventId",
+        parentColumn = "id",
         entity = OrganizerEntity::class,
-        entityColumn = "organizerId",
+        entityColumn = "id",
         associateBy = Junction(
             value = EventOrganizerCrossRef::class,
             parentColumn = "eventId",

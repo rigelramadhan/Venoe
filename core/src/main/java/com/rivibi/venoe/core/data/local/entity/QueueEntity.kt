@@ -5,7 +5,6 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Relation
-import java.time.LocalDateTime
 
 @Entity(tableName = "queue")
 data class QueueEntity(
@@ -20,7 +19,7 @@ data class QueueEntity(
     val startTime: String,
 
     @ColumnInfo("actual_start_time")
-    val actualStartTime: LocalDateTime,
+    val actualStartTime: String,
 
     @ColumnInfo("duration")
     val duration: Int,
@@ -37,7 +36,7 @@ data class EventAndQueue(
     val event: EventEntity,
 
     @Relation(
-        parentColumn = "eventId",
+        parentColumn = "id",
         entityColumn = "id"
     )
     val queue: List<QueueEntity>
