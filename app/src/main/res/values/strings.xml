@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Venoe</string>
+    <string name="content_description_event_banner">Event banner</string>
+    <string name="content_description_location_icon">Location icon</string>
 </resources>
