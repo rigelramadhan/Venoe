@@ -2,6 +2,8 @@ package com.rivibi.venoe.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -40,18 +42,49 @@ fun EventItem(
     location: String,
 ) {
     Column(modifier = modifier) {
-        Image(
-            painter = rememberAsyncImagePainter(
-                model = bannerUrl ?: R.drawable.no_image_placeholder
-            ),
-            contentDescription = stringResource(
-                R.string.content_description_event_banner
-            ),
+        Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(24.dp))
                 .aspectRatio(1 / 1f)
                 .background(color = Color.LightGray)
-        )
+        ) {
+            Image(
+                painter = rememberAsyncImagePainter(
+                    model = bannerUrl ?: R.drawable.no_image_placeholder
+                ),
+                contentDescription = stringResource(
+                    R.string.content_description_event_banner
+                ),
+                modifier = Modifier
+                    .clip(RoundedCornerShape(24.dp))
+                    .aspectRatio(1 / 1f)
+            )
+            Column(
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(end = 8.dp, bottom = 12.dp)
+            ) {
+                Text(
+                    text = startTime,
+                    style = MaterialTheme.typography.titleMedium
+                        .copy(fontWeight = FontWeight.Bold),
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(MaterialTheme.colorScheme.surface)
+                        .padding(horizontal = 8.dp, vertical = 4.dp)
+                )
+                Text(
+                    text = endTime,
+                    style = MaterialTheme.typography.titleMedium
+                        .copy(fontWeight = FontWeight.Bold),
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(MaterialTheme.colorScheme.surface)
+                        .padding(horizontal = 8.dp, vertical = 4.dp)
+                )
+            }
+        }
         Spacer(modifier = Modifier.height(8.dp))
         Card(
             modifier = Modifier
